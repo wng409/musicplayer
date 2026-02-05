@@ -3,54 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>在线音乐播放器</title>
+    <title>音乐播放器</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
     <div class="container">
-        <div class="player">
+        <div class="player-header">
             <h1><i class="fas fa-music"></i> 在线音乐播放器</h1>
-            
+        </div>
+        
+        <div class="album-art-container">
             <div class="album-art">
-                <img id="albumCover" src="images/counting_stars.jpg" alt="专辑封面">
+                <img id="albumCover" src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="专辑封面">
             </div>
-            
-            <div class="song-info">
-                <h2 id="songTitle">Counting Stars</h2>
-                <p id="songArtist">OneRepublic</p>
+        </div>
+        
+        <div class="song-info">
+            <h2 class="song-title" id="songTitle">Counting Stars</h2>
+            <p class="song-artist" id="songArtist">OneRepublic</p>
+        </div>
+        
+        <div class="progress-area">
+            <div class="progress-bar">
+                <input type="range" id="progress" min="0" max="100" value="0" class="progress">
+                <div class="progress-fill" id="progressFill"></div>
             </div>
-            
-            <div class="progress-area">
-                <div class="progress-bar">
-                    <input type="range" id="progress" min="0" max="100" value="0" class="progress">
-                </div>
-                <div class="timer">
-                    <span id="currentTime">0:00</span>
-                    <span id="duration">0:00</span>
-                </div>
+            <div class="timer">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
             </div>
-            
-            <div class="controls">
-                <button id="prevBtn" class="control-btn"><i class="fas fa-step-backward"></i></button>
-                <button id="playBtn" class="control-btn play-btn"><i class="fas fa-play"></i></button>
-                <button id="nextBtn" class="control-btn"><i class="fas fa-step-forward"></i></button>
-                <div class="volume-control">
-                    <i class="fas fa-volume-up"></i>
-                    <input type="range" id="volume" min="0" max="100" value="70" class="volume-slider">
-                </div>
+        </div>
+        
+        <div class="controls">
+            <button id="prevBtn" class="control-btn" title="上一首">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button id="playBtn" class="control-btn play-btn" title="播放/暂停">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="nextBtn" class="control-btn" title="下一首">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+        
+        <div class="volume-control">
+            <i class="fas fa-volume-up volume-icon"></i>
+            <div class="volume-slider-container">
+                <input type="range" id="volume" min="0" max="100" value="70" class="volume-slider">
+                <div class="volume-fill" id="volumeFill"></div>
             </div>
-            
-            <div class="playlist">
-                <h3><i class="fas fa-list"></i> 播放列表</h3>
-                <ul id="playlist">
-                    <!-- 歌曲列表将通过JavaScript动态生成 -->
-                </ul>
-            </div>
-            
-            <div class="instructions">
-                <p><i class="fas fa-info-circle"></i> 提示：MP3文件放在music文件夹中，图片放在images文件夹中</p>
-            </div>
+        </div>
+        
+        <div class="playlist">
+            <h3><i class="fas fa-list"></i> 播放列表</h3>
+            <ul id="playlist">
+                <!-- 播放列表通过JavaScript动态生成 -->
+            </ul>
+        </div>
+        
+        <div class="instructions">
+            <p><i class="fas fa-info-circle"></i> 将MP3文件放在music文件夹中即可播放</p>
         </div>
     </div>
     
