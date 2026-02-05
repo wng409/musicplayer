@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线音乐播放器</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="player">
+            <h1><i class="fas fa-music"></i> 在线音乐播放器</h1>
+            
+            <div class="album-art">
+                <img id="albumCover" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="专辑封面">
+            </div>
+            
+            <div class="song-info">
+                <h2 id="songTitle">选择一首歌曲</h2>
+                <p id="songArtist">点击下方歌曲开始播放</p>
+            </div>
+            
+            <div class="progress-area">
+                <div class="progress-bar">
+                    <input type="range" id="progress" min="0" max="100" value="0" class="progress">
+                </div>
+                <div class="timer">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="prevBtn" class="control-btn"><i class="fas fa-step-backward"></i></button>
+                <button id="playBtn" class="control-btn play-btn"><i class="fas fa-play"></i></button>
+                <button id="nextBtn" class="control-btn"><i class="fas fa-step-forward"></i></button>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volume" min="0" max="100" value="70" class="volume-slider">
+                </div>
+            </div>
+            
+            <div class="playlist">
+                <h3><i class="fas fa-list"></i> 播放列表</h3>
+                <ul id="playlist">
+                    <!-- 歌曲列表将通过JavaScript动态生成 -->
+                </ul>
+            </div>
+            
+            <div class="instructions">
+                <p><i class="fas fa-info-circle"></i> 提示：将您的MP3文件放在music文件夹中，然后更新script.js中的播放列表</p>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="audioPlayer" preload="metadata"></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
