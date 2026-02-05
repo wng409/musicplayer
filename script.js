@@ -5,20 +5,20 @@ const playlist = [
     {
         title: "Counting Stars",
         artist: "OneRepublic",
-        src: "music/counting_stars.mp3",
+        src: "music/song1.mp3",
         cover: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
         title: "Dream It Possible",
         artist: "Delacey",
-        src: "music/dream_it_possible.mp3",
+        src: "music/song2.mp3",
         cover: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
         title: "春节序曲",
         artist: "中国广播民族乐团",
-        src: "music/spring_festival.mp3",
-        cover: "https://images.unsplash.com/photo-1547825407-12d434919bec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        src: "music/song3.mp3",
+        cover: "https://img95.699pic.com/photo/50107/5435.jpg_wh860.jpg"
     }
 ];
 // DOM元素
