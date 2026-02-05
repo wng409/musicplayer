@@ -1,26 +1,26 @@
 // 音乐播放列表 - 在这里添加您的音乐文件
 // 注意：音乐文件需要放在music文件夹中
+// 临时使用在线图片
 const playlist = [
     {
-        title: "示例歌曲1",
-        artist: "示例艺术家",
-        src: "music/song1.mp3",
-        cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        title: "Counting Stars",
+        artist: "OneRepublic",
+        src: "music/counting_stars.mp3",
+        cover: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
-        title: "示例歌曲2",
-        artist: "示例艺术家",
-        src: "music/song2.mp3",
-        cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        title: "Dream It Possible",
+        artist: "Delacey",
+        src: "music/dream_it_possible.mp3",
+        cover: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
-        title: "示例歌曲3",
-        artist: "示例艺术家",
-        src: "music/song3.mp3",
-        cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        title: "春节序曲",
+        artist: "中国广播民族乐团",
+        src: "music/spring_festival.mp3",
+        cover: "https://images.unsplash.com/photo-1547825407-12d434919bec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     }
 ];
-
 // DOM元素
 const audioPlayer = document.getElementById('audioPlayer');
 const playBtn = document.getElementById('playBtn');
