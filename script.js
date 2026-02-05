@@ -1,35 +1,36 @@
-// 音乐播放列表 - 在这里添加您的音乐文件
-// 注意：音乐文件需要放在music文件夹中
-// 临时使用在线图片
+// 音乐播放列表
 const playlist = [
     {
         title: "Counting Stars",
         artist: "OneRepublic",
         src: "music/song1.mp3",
-        cover: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        cover: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
         title: "Dream It Possible",
         artist: "Delacey",
         src: "music/song2.mp3",
-        cover: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        cover: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
         title: "春节序曲",
         artist: "中国广播民族乐团",
         src: "music/song3.mp3",
-        cover: "https://img95.699pic.com/photo/50107/5435.jpg_wh860.jpg"
+        cover: "https://via.placeholder.com/600/F44336/FFFFFF?text=春节序曲+🎆🧧"
     }
 ];
+
 // DOM元素
 const audioPlayer = document.getElementById('audioPlayer');
 const playBtn = document.getElementById('playBtn');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const progress = document.getElementById('progress');
+const progressFill = document.getElementById('progressFill');
 const currentTimeEl = document.getElementById('currentTime');
 const durationEl = document.getElementById('duration');
 const volumeSlider = document.getElementById('volume');
+const volumeFill = document.getElementById('volumeFill');
 const songTitle = document.getElementById('songTitle');
 const songArtist = document.getElementById('songArtist');
 const albumCover = document.getElementById('albumCover');
@@ -46,7 +47,10 @@ function initializePlaylist() {
         const li = document.createElement('li');
         li.innerHTML = `
             <i class="fas fa-music"></i>
-            <span>${song.title} - ${song.artist}</span>
+            <div class="song-details">
+                <div class="title">${song.title}</div>
+                <div class="artist">${song.artist}</div>
+            </div>
         `;
         li.addEventListener('click', () => loadSong(index));
         playlistEl.appendChild(li);
@@ -75,7 +79,9 @@ function loadSong(index) {
     
     // 如果播放器正在播放，继续播放新歌曲
     if (isPlaying) {
-        audioPlayer.play();
+        setTimeout(() => {
+            audioPlayer.play();
+        }, 100);
     }
 }
 
@@ -92,14 +98,14 @@ function playSong() {
     isPlaying = true;
     audioPlayer.play();
     playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-    playBtn.classList.add('playing');
+    playBtn.setAttribute('title', '暂停');
 }
 
 function pauseSong() {
     isPlaying = false;
     audioPlayer.pause();
     playBtn.innerHTML = '<i class="fas fa-play"></i>';
-    playBtn.classList.remove('playing');
+    playBtn.setAttribute('title', '播放');
 }
 
 // 上一首
@@ -132,6 +138,7 @@ function updateProgress(e) {
     if (duration) {
         const progressPercent = (currentTime / duration) * 100;
         progress.value = progressPercent;
+        progressFill.style.width = `${progressPercent}%`;
         
         // 更新时间显示
         const currentMinutes = Math.floor(currentTime / 60);
@@ -155,9 +162,17 @@ function setProgress(e) {
     }
 }
 
+// 更新音量显示
+function updateVolumeDisplay() {
+    const volumePercent = volumeSlider.value;
+    volumeFill.style.width = `${volumePercent}%`;
+}
+
 // 设置音量
 function setVolume() {
-    audioPlayer.volume = this.value / 100;
+    const volumePercent = this.value;
+    audioPlayer.volume = volumePercent / 100;
+    updateVolumeDisplay();
 }
 
 // 歌曲结束时自动播放下一首
@@ -171,10 +186,18 @@ prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
 audioPlayer.addEventListener('timeupdate', updateProgress);
 audioPlayer.addEventListener('ended', songEnded);
-progress.addEventListener('click', setProgress);
+progress.addEventListener('input', function() {
+    const duration = audioPlayer.duration;
+    if (duration) {
+        audioPlayer.currentTime = (this.value / 100) * duration;
+    }
+});
 volumeSlider.addEventListener('input', setVolume);
 
-// 初始化
+// 初始化音量显示
+updateVolumeDisplay();
+
+// 初始化播放器
 initializePlaylist();
 loadSong(0);
 
@@ -186,9 +209,11 @@ document.addEventListener('keydown', (e) => {
             togglePlay();
             break;
         case 'ArrowLeft':
+            e.preventDefault();
             prevSong();
             break;
         case 'ArrowRight':
+            e.preventDefault();
             nextSong();
             break;
     }
