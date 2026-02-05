@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.player {
+    padding: 30px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+h1 i {
+    color: #6a11cb;
+    margin-right: 10px;
+}
+
+.album-art {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 25px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.song-info {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#songTitle {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#songArtist {
+    color: #666;
+    font-size: 16px;
+}
+
+.progress-area {
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.progress {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    border-radius: 50px;
+    outline: none;
+}
+
+.progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px solid #6a11cb;
+    cursor: pointer;
+}
+
+.timer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.control-btn {
+    background: #6a11cb;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-btn:hover {
+    background: #2575fc;
+    transform: scale(1.05);
+}
+
+.play-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.volume-control i {
+    color: #6a11cb;
+    font-size: 20px;
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 5px;
+    background: #e0e0e0;
+    border-radius: 50px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #6a11cb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.playlist {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.playlist h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.playlist h3 i {
+    color: #6a11cb;
+    margin-right: 8px;
+}
+
+#playlist {
+    list-style-type: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#playlist li {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#playlist li:hover {
+    background: #e9ecef;
+    border-radius: 8px;
+}
+
+#playlist li.active {
+    background: linear-gradient(90deg, #6a11cb20, #2575fc20);
+    border-left: 4px solid #6a11cb;
+    color: #6a11cb;
+    font-weight: 600;
+}
+
+#playlist li i {
+    color: #6a11cb;
+}
+
+.instructions {
+    background: #fff8e1;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 14px;
+    color: #666;
+    border-left: 4px solid #ffc107;
+}
+
+.instructions i {
+    color: #ff9800;
+    margin-right: 8px;
+}
